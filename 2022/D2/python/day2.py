@@ -7,7 +7,7 @@ def file_exist (string):
         raise argparse.ArgumentTypeError('ERROR: input file does not exist.')
     return string
 
-def part_one(file):
+def part_one(list):
     your_score = 0
     you = {
         "X": 1, 
@@ -25,17 +25,12 @@ def part_one(file):
         ("C","Y"): 0,
         ("C","Z"): 3,
     }
-    try:
-        with open(args.filename, "r") as file:
-            for num, line in enumerate(file,1):
-                values = line.strip().split(" ")
-                your_score += you[values[1]] + plays[(values[0],values[1])]
-            print(f"Part 1 score: {your_score}")  
-    except IOError:
-        print("ERROR: input file is not readable.")
-        sys.exit(-1)
+    
+    for i in range(0,len(list)):
+        your_score += you[list[i][1]] + plays[(list[i][0],list[i][1])]
+    print(f"Part 1 score: {your_score}") 
 
-def part_two(file):
+def part_two(list):
     your_score = 0
     you = {
         "X": 0, 
@@ -53,15 +48,11 @@ def part_two(file):
         ("Z","B"): 3,
         ("Z","C"): 1,
     }
-    try:
-        with open(args.filename, "r") as file:
-            for num, line in enumerate(file,1):
-                values = line.strip().split(" ")
-                your_score += you[values[1]] + plays[(values[1],values[0])]
-            print(f"Part 2 score: {your_score}")  
-    except IOError:
-        print("ERROR: input file is not readable.")
-        sys.exit(-1)
+          
+    for i in range(0,len(list)):
+        your_score += you[list[i][1]] + plays[(list[i][1],list[i][0])]
+    print(f"Part 2 score: {your_score}")  
+    
 
 
 if __name__ == "__main__":
@@ -70,6 +61,14 @@ if __name__ == "__main__":
                     help='file doesnt exist')
     
     args = parser.parse_args() 
+    values = []
+    try:
+        with open(args.filename, "r") as file:
+            for num, line in enumerate(file,1):
+                values.append(line.strip().split(" "))
+    except IOError:
+        print("ERROR: input file is not readable.")
+        sys.exit(-1)
     
-    part_one(args.filename) 
-    part_two(args.filename)
+    part_one(values) 
+    part_two(values)
