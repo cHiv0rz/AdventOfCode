@@ -1,6 +1,6 @@
 # --- Day 4: Camp Cleanup ---
 
-## --- Part Two ---
+## --- Part One ---
 
 Space needs to be cleared before the last supplies can be unloaded from the ships, and so several Elves have been assigned the job of cleaning up sections of the camp. Every section has a unique **ID number**, and each Elf is assigned a range of section IDs.
 
@@ -8,7 +8,7 @@ However, as some of the Elves compare their section assignments with each other,
 
 For example, consider the following list of section assignment pairs:
 
-```
+```sh
 2-4,6-8
 2-3,4-5
 5-7,7-9
@@ -25,7 +25,7 @@ For the first few pairs, this list means:
   
 This example list uses single-digit section IDs to make it easier to draw; your actual list might contain larger numbers. Visually, these pairs of section assignments look like this:
 
-```
+```sh
 .234.....  2-4
 .....678.  6-8
 
@@ -59,7 +59,7 @@ In the above example, the first two pairs (`2-4,6-8` and `2-3,4-5`) don't overla
 - `2-8,3-7` overlaps all of the sections `3` through `7`.
 - `6-6,4-6` overlaps in a single section, `6`.
 - `2-6,4-8` overlaps in sections `4`, `5`, and `6`.
- 
+
 So, in this example, the number of overlapping assignment pairs is `4`.
 
 **In how many assignment pairs do the ranges overlap?**
