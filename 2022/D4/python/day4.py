@@ -11,15 +11,15 @@ def part_one(list):
     total = 0
     for each in list:
         assignment1, assignment2 = each.split(",")
-        range1_1, range1_2 = assignment1.split("-")
-        range2_1, range2_2 = assignment2.split("-")
+        range1_1, range1_2 = map(int, assignment1.split("-"))
+        range2_1, range2_2 = map(int, assignment2.split("-"))
 
-        if int(range1_1) >= int(range2_1):
-            if int(range1_2) <= int(range2_2):
+        if range1_1 >= range2_1:
+            if range1_2 <= range2_2:
                 total +=1
                 continue
-        if int(range2_1) >= int(range1_1): 
-            if int(range2_2) <= int(range1_2):
+        if range2_1 >= range1_1: 
+            if range2_2 <= range1_2:
                 total +=1
     print(f"Part 1: {total}")
 
@@ -27,18 +27,18 @@ def part_two(list):
     total = 0
     for each in list:
         assignment1, assignment2 = each.split(",")
-        range1_1, range1_2 = assignment1.split("-")
-        range2_1, range2_2 = assignment2.split("-")
+        range1_1, range1_2 = map(int, assignment1.split("-"))
+        range2_1, range2_2 = map(int, assignment2.split("-"))
 
-        if int(range1_1) == int(range1_2):
+        if range1_1 == range1_2:
             c1 = {int(range1_1)}
         else:
             c1 = { i for i in range(int(range1_1),int(range1_2)+1)}
 
-        if int(range2_1) == int(range2_2):
-            c2 = {int(range2_1)}
+        if range2_1 == range2_2:
+            c2 = {range2_1}
         else:
-            c2 = { i for i in range(int(range2_1),int(range2_2)+1)}
+            c2 = {i for i in range(range2_1,range2_2+1)}
     
         for number in c1:
             if number in c2:
