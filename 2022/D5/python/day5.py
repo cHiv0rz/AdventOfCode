@@ -8,16 +8,33 @@ def file_exist (string):
         raise argparse.ArgumentTypeError('ERROR: input file does not exist.')
     return string
 
-def part_one(crates, moves):
-    print(crates)
-    print(moves)
-    
-    crates[2].pop(-1)
-    print(crates)
-    # for each in moves:
-    #     for movement in range(1,each[0]+1):
-    #         if crates[each[1]] == " ":
-    #             print("yololo")           
+def part_one(stacks, moves):
+    print(stacks)
+    result = ""
+    for move in moves: # movimientos
+        print(move)
+        for number in range(1,move[0]+1): # num de movimientos de stack a otro
+            for crate_origin in range(len(stacks[move[1]-1])-1,-1,-1): # recorremos el stack  origen desde arriba, para ver cual tenemos.
+                if stacks[move[1]-1][crate_origin] != " ": # Este es el que tenemos que mover.
+                    top = stacks[move[1]-1][crate_origin] # Lo sacamos
+                    stacks[move[1]-1][crate_origin] = " " # Lo ponemos vacio porque ya no esta
+                    for crate_dest in range(len(stacks[move[2]-1])): # recorremos el stack destino desde abacrate_desto, buscando el nuevo sitio
+                        if crate_dest == len(stacks[move[2]-1])-1 and stacks[move[2]-1][crate_dest] != " ": # es el ultimo y hay crate, por tanto apilamos
+                            stacks[move[2]-1].append(top)
+                        elif stacks[move[2]-1][crate_dest] == " ":
+                            stacks[move[2]-1][crate_dest] = top
+                            break
+                    break
+                else:
+                    continue
+
+    for each in stacks:
+        for index in range(len(each)-1,-1,-1):
+            if each[index] != " ":
+                result += each[index]
+                break
+    print(result)
+
         
 
 if __name__ == "__main__":
@@ -45,12 +62,17 @@ if __name__ == "__main__":
                 temp.append(line[character])
             crates.append(temp)
         elif each.startswith(" "):
-            stacks = each.replace("\n","").replace("   ",",").replace(" ","").split(",")
+            num_stacks = each.replace("\n","").replace("   ",",").replace(" ","").split(",")
+            stacks = [ [] for x in range(len(num_stacks))]
         else:
             temp = []
             for element in each.replace("\n","").split(" "):
                 if element.isdigit():
                     temp.append(int(element))
             moves.append(temp) 
-        
-    part_one(crates, moves)
+    crates = crates[::-1]
+    for crate in range(len(crates)):
+        for stack in range(len(stacks)):
+            stacks[stack].append(crates[crate][stack])
+
+    part_one(stacks,moves)
