@@ -11,15 +11,15 @@ def file_exist (string):
 def part_one(stacks, moves):
     print(stacks)
     result = ""
-    for move in moves: # movimientos
+    for move in moves: 
         print(move)
-        for number in range(1,move[0]+1): # num de movimientos de stack a otro
-            for crate_origin in range(len(stacks[move[1]-1])-1,-1,-1): # recorremos el stack  origen desde arriba, para ver cual tenemos.
-                if stacks[move[1]-1][crate_origin] != " ": # Este es el que tenemos que mover.
-                    top = stacks[move[1]-1][crate_origin] # Lo sacamos
-                    stacks[move[1]-1][crate_origin] = " " # Lo ponemos vacio porque ya no esta
-                    for crate_dest in range(len(stacks[move[2]-1])): # recorremos el stack destino desde abacrate_desto, buscando el nuevo sitio
-                        if crate_dest == len(stacks[move[2]-1])-1 and stacks[move[2]-1][crate_dest] != " ": # es el ultimo y hay crate, por tanto apilamos
+        for number in range(1,move[0]+1): 
+            for crate_origin in range(len(stacks[move[1]-1])-1,-1,-1): 
+                if stacks[move[1]-1][crate_origin] != " ": 
+                    top = stacks[move[1]-1][crate_origin] 
+                    stacks[move[1]-1][crate_origin] = " " 
+                    for crate_dest in range(len(stacks[move[2]-1])):
+                        if crate_dest == len(stacks[move[2]-1])-1 and stacks[move[2]-1][crate_dest] != " ": 
                             stacks[move[2]-1].append(top)
                         elif stacks[move[2]-1][crate_dest] == " ":
                             stacks[move[2]-1][crate_dest] = top
