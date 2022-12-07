@@ -10,6 +10,12 @@ def part_one(data) -> List:
         for idx, char in enumerate(each):
             marker.append(char)
             if len(set(marker[-n:])) == n:
+            # note: we can change last to lines by:
+            # marker = [*marker, char][-4:]
+            # if len(set(marker)) == 4:
+            # it will be less consumption in memory, but the cost in CPU will be higher,
+            # since we it will be creating, copying and freezing memory any time, which produces
+            # memory frangmentation. But it's cool :D
                 print(idx+1)
                 break
             
