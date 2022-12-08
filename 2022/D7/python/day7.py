@@ -9,7 +9,7 @@ def file_exist (string):
         raise argparse.ArgumentTypeError('ERROR: input file does not exist.')
     return string
 
-def part_one(data):
+def calculate_paths_size(data) -> defaultdict:
     sizes = defaultdict(int)
     current_path = []
     for command in data:
@@ -22,7 +22,7 @@ def part_one(data):
             sizes[tuple(current_path)] += int(size.group(1)) 
             for i in range(1, len(current_path)):
                 sizes[tuple(current_path[:-i])] += int(size.group(1))
-    print(sizes)
+    return(sizes)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='D5 Input')
@@ -38,4 +38,20 @@ if __name__ == "__main__":
         print("ERROR: input file is not readable.")
         sys.exit(-1) 
         
-    part_one(data)
+    path_sizes = calculate_paths_size(data)
+
+    # Part one
+    sum = 0
+    for each in path_sizes.values():
+        if each <= 100000:
+            sum += each
+    print(f"Part one: {sum}")
+
+    # Part two
+    disk_in_use = sorted(path_sizes.values())[-1]
+    space_needed = abs(30_000_000 - (70_000_000 - sorted(path_sizes.values())[-1]))
+    result = []
+    for each in sorted(path_sizes.values()):
+        if each >= space_needed:
+            result.append(each)
+    print(f"Part two: {sorted(result)[0]}")
