@@ -2,9 +2,6 @@ import os
 import sys
 import argparse
 import re
-from collections import defaultdict
-
-
 
 def file_exist (string):
     if not os.path.exists(string):
@@ -46,7 +43,7 @@ def part_one(rows,columns):
                     (visible_left(value, rows[row][0:column]) or  
                     visible_right(value, rows[row][column+1:])):
                         visible +=1
-    print(visible)
+    print(f"Part one: {visible}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='D5 Input')
