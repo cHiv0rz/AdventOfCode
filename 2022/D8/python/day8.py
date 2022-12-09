@@ -62,7 +62,7 @@ if __name__ == "__main__":
     except:
         print("ERROR: input file is not readable.")
         sys.exit(-1)
-
+    
     rows = [[int(each) for each in line] for line in data]
     columns = [[] for column in range(len(data))]
 
