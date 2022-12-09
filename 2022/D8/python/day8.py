@@ -18,7 +18,7 @@ def visibility(high,trees) -> int:
     for each in trees:
         if each < high:
             num_trees +=1
-        elif each >= high:
+        else:
             num_trees +=1
             break
     return num_trees
