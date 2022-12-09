@@ -43,9 +43,9 @@ The Elves don't care about distant trees taller than those found by the rules ab
 
 In the example above, consider the middle 5 in the second row:
 
-```txt
+```markdown
 30373
-25512
+25**5**12
 65332
 33549
 35390
