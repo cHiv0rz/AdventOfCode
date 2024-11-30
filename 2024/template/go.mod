@@ -1,6 +1,6 @@
-module D1
+module AOC-2024/D1
 
-go 1.21.5
+go 1.23.3
 
 require github.com/sirupsen/logrus v1.9.3
 
