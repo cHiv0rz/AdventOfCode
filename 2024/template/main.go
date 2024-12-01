@@ -5,19 +5,21 @@ import (
 
 	log "github.com/sirupsen/logrus"
 )
+func partOne(filename string) {
 
+}
+func partTwo(filename string) {
+
+}
 func main() {
-        log.SetFormatter(&log.TextFormatter{
-                FullTimestamp:   true,
-                TimestampFormat: "2006-01-02 15:04:05",
-        })
-        log.SetOutput(os.Stdout)
+	// Set log format
+	log.SetFormatter(&log.TextFormatter{
+		FullTimestamp:   true,
+		TimestampFormat: "2006-01-02 15:04:05",
+	})
+	log.SetOutput(os.Stdout)
 
-        data, err := os.Open("tu_archivo.txt")
-        if err != nil {
-                log.WithError(err).Error("Error al leer el archivo")
-                return
-        }
-
-        log.Info(data.Name())
+	// Part 1
+	partOne("inputs/input_D1-E1.txt")
+	partTwo("inputs/input_D1-E2.txt")
 }

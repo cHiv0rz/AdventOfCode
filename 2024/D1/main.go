@@ -99,7 +99,7 @@ func partTwo(filename string) {
 		secondColumn = append(secondColumn, second)
 	}
 
-	// I want to move this to a map, to not iterate the array n*n times
+	// TODO: Improve this to not iterate n*n times
 	for idx1 := 0; idx1 < len(firstColumn); idx1++ {
 		times := 0
 		for idx2 := 0; idx2 < len(secondColumn); idx2++ {
@@ -112,14 +112,14 @@ func partTwo(filename string) {
 	log.Info("The similarity score is: ", similarityScore)
 }
 func main() {
-		// Set log format
-        log.SetFormatter(&log.TextFormatter{
-                FullTimestamp:   true,
-                TimestampFormat: "2006-01-02 15:04:05",
-        })
-        log.SetOutput(os.Stdout)
+	// Set log format
+	log.SetFormatter(&log.TextFormatter{
+			FullTimestamp:   true,
+			TimestampFormat: "2006-01-02 15:04:05",
+	})
+	log.SetOutput(os.Stdout)
 
-		// Part 1
-		partOne("inputs/input_D1-E1.txt")
-		partTwo("inputs/input_D1-E2.txt")
+	// Part 1
+	partOne("inputs/input_D1-E1.txt")
+	partTwo("inputs/input_D1-E2.txt")
 }
