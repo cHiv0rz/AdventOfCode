@@ -68,5 +68,6 @@ func main() {
 
 	// Part 1
 	partOne("inputs/input_D3-E1.txt")
+	// Part 2
 	partTwo("inputs/input_D3-E2.txt")
 }
