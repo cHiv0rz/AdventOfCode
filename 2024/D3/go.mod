@@ -1,4 +1,4 @@
-module AOC-2024/D1
+module AOC-2024/D3
 
 go 1.23.3
 
