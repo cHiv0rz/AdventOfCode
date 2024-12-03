@@ -95,7 +95,7 @@ func partOne(filename string) {
 			safeReports++
 		}
 	}
-	log.Info("Number of safe reports: ", safeReports)
+	log.Info("D2-E1: Number of safe reports: ", safeReports)
 }
 
 func partTwo(filename string) {
@@ -119,7 +119,7 @@ func partTwo(filename string) {
 			safeReports++
 		}
 	}
-	log.Info("Number of safe reports: ", safeReports)
+	log.Info("D2-E2: Number of safe reports: ", safeReports)
 }
 
 func IsSafeUpReport(report []int) bool {
@@ -195,8 +195,7 @@ func main() {
 	log.SetOutput(os.Stdout)
 
 	// Part 1
-	//partOne("inputs/input_D2-E1.txt")
+	partOne("inputs/input_D2-E1.txt")
 	// Part 2
-	// partTwo("inputs/test.txt")
 	partTwo("inputs/input_D2-E2.txt")
 }
