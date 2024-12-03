@@ -1,4 +1,4 @@
-module AOC-2024/D3
+module github.com/cHiv0rz/AdventOfCode/2024/D3
 
 go 1.23.3
 
