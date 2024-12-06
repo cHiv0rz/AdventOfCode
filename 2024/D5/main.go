@@ -91,7 +91,6 @@ func sumCorrectlyOrderedUpdates(rules []Rule, updates []Update) int {
 	sum := 0
 	for _, update := range updates {
 		if isValidOrder(update, rules) {
-			// Find middle number
 			middleIndex := len(update) / 2
 			sum += update[middleIndex]
 		}
@@ -127,7 +126,6 @@ func sumFixedUpdates(rules []Rule, updates []Update) int {
 }
 
 func needsSwap(after int, before int, rules []Rule) bool {
-    // Check if there's a rule saying b should come before a
     for _, rule := range rules {
         if rule.Left == before && rule.Right == after {
             return true

@@ -44,7 +44,7 @@ To find the `total distance` between the left list and the right list, add up th
 
 Your actual left and right lists contain many location IDs. `What is the total distance between your lists?`
 
-Your puzzle answer was 3508942.
+Your puzzle answer was **`3508942`**.
 
 ## --- Part Two ---
 
@@ -79,3 +79,5 @@ The last number, `3`, appears in the right list three times; the similarity scor
 So, for these example lists, the similarity score at the end of this process is `**31**` (`9 + 4 + 0 + 0 + 9 + 9`).
 
 Once again consider your left and right lists. `What is their similarity score`?
+
+Your puzzle answer was **`26593248`**.

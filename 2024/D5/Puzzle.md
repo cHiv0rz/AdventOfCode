@@ -84,7 +84,7 @@ Of course, you'll need to be careful: the actual list of **page ordering rules**
 
 Determine which updates are already in the correct order. **What do you get if you add up the middle page number from those correctly-ordered updates?**
 
-Your puzzle answer was 5651.
+Your puzzle answer was **`5651`**.
 
 ## --- Part Two ---
 
@@ -98,3 +98,5 @@ For each of the **incorrectly-ordered updates**, use the page ordering rules to 
 After taking **only the incorrectly-ordered updates** and ordering them correctly, their middle page numbers are `47`, `29`, and `47`. Adding these together produces **`123`**.
 
 Find the updates which are not in the correct order. **What do you get if you add up the middle page numbers after correctly ordering just those updates?**
+
+Your puzzle answer was **`4743`**.
